@@ -3,7 +3,7 @@
 ## Introduzione
 
 Ogni processo in esecuzione sul proprio sistema operativo ha accesso ad un sistema di input e output tramite il quale può comunicare con il mondo (e gli altri processi in esecuzione).
-In Unix ogni canale di comunicazioe è identificato da un “file descriptor”, un riferimento numerico al canale.
+In Unix ogni canale di comunicazione è identificato da un “file descriptor”, un riferimento numerico al canale.
 I vari canali disponibili vanno dai file (blocchi di dati memorizzati sulla macchina), ai flussi testuali (la riga di comando ad esempio), alle *socket* (delle strutture che permettono di comunicare con altri processi eventualmente in esecuzione su altre macchine remote).
 
 Generalmente ogni processo in esecuzione in ambiente Unix ha 3&nbsp;canali di comunicazione aperti di default:
@@ -85,7 +85,7 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
-Inserire qui il comando che produce la risposta
+tail -n1 divina_commedia.txt
 ```
 
 ### 2. A proposito di stelle
@@ -93,7 +93,7 @@ Inserire qui il comando che produce la risposta
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | grep -ic stelle
 ```
 
 ### 3. Lista dei file
@@ -101,7 +101,7 @@ Inserire qui il comando che produce la risposta
 Trovare il file più piccolo presente in questa cartella.
 
 ```bash
-Inserire qui il comando che produce la risposta
+ls -Sl | tail -n1
 ```
 
 ### 4. Lista delle domande
@@ -113,5 +113,5 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
-Inserire qui il comando che produce la risposta
+curl -s "https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md" | grep -iE 'trovare|\?'
 ```
