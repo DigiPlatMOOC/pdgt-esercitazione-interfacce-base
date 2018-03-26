@@ -93,7 +93,7 @@ cat divina_commedia.txt | tail -n 1
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
-cat divina_commedia.txt | grep -i "stelle" | wc // prendo il primo valore corrispondente al numero di righe
+cat divina_commedia.txt | grep -i "stelle" | wc -w
 ```
 
 ### 3. Lista dei file
