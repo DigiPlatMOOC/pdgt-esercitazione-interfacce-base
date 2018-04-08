@@ -1,10 +1,15 @@
 #include <stdio.h>
+#include <ctype.h>
 
-int main() {
-    fprintf(stdout, "Test output\n");
-    fprintf(stderr, "Test errore\n");
-
-    printf("Leggo il primo carattere di input...\n"); // equivalente a fprintf(stdin...)
-    char c = fgetc(stdin);
-    printf("Hai scritto %c\n", c);
+int main () {
+   int i = 0;
+   char str[] = "ciao mondo";
+   
+   while(str[i]) {
+      putchar (toupper(str[i]));
+      i++;
+   }
+   
+   return(0);
 }
+

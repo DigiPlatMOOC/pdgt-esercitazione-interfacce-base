@@ -59,7 +59,7 @@ Si consiglia di fare qualche prova con altri strumenti Unix elencati qui sotto.
 * `sort`: riordina l’input in base all’ordine alfabetico delle righe di cui è composto.
 * `more`: visualizza in più pagine l’input (utile per elenchi o file lunghi, ad esempio `cat divina_commedia.txt | more` permette di leggere la Divina Commedia suddivisa in paginate).
 * `head`: visualizza le prime righe dell’input, in particolare `head -n 1` visualizza soltanto la prima riga.
-* `tail`: stessa cosa, ma a partire dalla fine dell’input.
+* `tail`: stessa cosa, ma a partire qqqqdalla fine dell’input.
 * `tac`: (il contrario di `cat` 😒) stampa l’input al contrario, dall’ultima riga alla prima.
 * `curl`: scarica una risorsa online (tramite richiesta HTTP) e la stampa in output.
 
@@ -86,6 +86,14 @@ Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
 Inserire qui il comando che produce la risposta
+
+cat divina_commedia.txt | tail
+
+cat divina_commedia.txt |tail -n 1
+  l'amor che move il sole e l'altre stelle.
+
+
+
 ```
 
 ### 2. A proposito di stelle
@@ -94,6 +102,10 @@ Le stelle occupano un significato simbolico all’intero della Divina Commedia. 
 
 ```bash
 Inserire qui il comando che produce la risposta
+
+cat divina_commedia.txt |grep -i "stelle"|wc
+     26     181    1010
+
 ```
 
 ### 3. Lista dei file
@@ -102,6 +114,9 @@ Trovare il file più piccolo presente in questa cartella.
 
 ```bash
 Inserire qui il comando che produce la risposta
+
+ls -S
+
 ```
 
 ### 4. Lista delle domande
@@ -114,4 +129,7 @@ Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
 Inserire qui il comando che produce la risposta
+
+curl http://https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md | grep -i "###"
+
 ```

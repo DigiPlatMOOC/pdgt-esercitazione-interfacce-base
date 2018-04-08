@@ -68,3 +68,7 @@ Spiegare come si interpreta la tabella dei simboli dinamici data dall’ultimo c
 Spiegare come si interpreta la presenza di simboli che non sono nel proprio codice (ad esempio, `__libc_start_main`).
 
 La risposta può essere consegnata come semplice file di testo o file Markdown in questa cartella (ad esempio, `risposta.md`).
+
+
+
+
