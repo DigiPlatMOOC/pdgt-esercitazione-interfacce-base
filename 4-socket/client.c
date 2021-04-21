@@ -23,7 +23,23 @@ int main() {
 
     printf("Connected!\n");
 
-    // Put code here!
+    char input[512];
+    memset(input, 0, sizeof(char) * 512);
+
+    printf("Send > ");
+    fgets(input, 511, stdin);
+
+    send(socket, input, strlen(input), 0);
+    socket_close_send(socket);
+
+    int read = socket_read_all(socket, input, 511);
+    printf("Received: ");
+    for(int i = 0; i < read; ++i) {
+        fputc(input[i], stdout);
+    }
+    printf("\n");
+
+    socket_close(socket);
 
     if(socket_quit(socket) != 0) {
         fprintf(stderr, "Socket finalization failed\n");

@@ -1,11 +1,13 @@
-# Esercitazione 1: interfaccia del codice C
+# Esercitazione 1: interfacce in codice C
 
 ## Introduzione
 
 Una volta compilato, il codice può essere visto come una “scatola nera” che esegue delle operazioni in maniera del tutto opaca all’utilizzatore ed anche al programmatore originale.
 Il codice tuttavia non è *del tutto* opaco: tramite un sistema di **API**&nbsp;(Application Programming Interface) altri sviluppatori possono interagire con esso, mentre tramite un sistema di **ABI**&nbsp;(Application Binary Interface) altri blocchi di codice possono “comunicare” con il codice in questione.
 
-In questa semplice esercitazione vedremo in pratica in cosa consistono API ed ABI dal punto di vista di uno sviluppatore, con l’esempio concreto di un semplice progetto in linguaggio&nbsp;C.
+Nel caso specifico di questa esercitazione, grazie all’API, lo sviluppatore potrà conoscere l’esistenza di una funzione `int divide(int a, int b)` e, grazie all’ABI, chiamarla nel proprio codice, generando un eseguibile che integri il precedente blocco di codice binario compilato che contiene l’effettivo codice della funzione `divide`.
+
+Nell’esercitazione vedremo in pratica in cosa consistono API ed ABI dal punto di vista di uno sviluppatore, con l’esempio concreto di un semplice progetto in linguaggio&nbsp;C.
 
 ## Procedura
 
@@ -53,3 +55,7 @@ A questo punto dovremmo ottenere un file eseguibile `test` che possiamo eseguire
 ```bash
 ./test
 ```
+
+## Consegna
+
+Niente da consegnare.

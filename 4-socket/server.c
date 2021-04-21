@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "socket-lib.h"
 
 #define HOST "127.0.0.1"
@@ -38,18 +39,16 @@ int main() {
 
         printf("Connected!\n");
 
-        // Socket open, put code here!
-
-        // Sample functions (see socket-lib.h):
-        // socket_read_all(socket, buffer, buffer_size);
-        // send(socket, buffer, buffer_size, 0);
-
         char buffer[512];
-        int read = socket_read_all(incoming, buffer, 512);
-        send(incoming, buffer, read, 0);
+        memset(buffer, 0, sizeof(char) * 512);
         
-        socket_close(incoming);
+        int read = socket_read_all(incoming, buffer, 512);
+        for(int i = 0; i < read; ++i) {
+            buffer[i] = toupper(buffer[i]);
+        }
+        send(incoming, buffer, read, 0);
 
+        socket_close(incoming);
     }
 
     if(socket_quit(socket) != 0) {
