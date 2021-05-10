@@ -2,6 +2,9 @@
 #include "divide.h"
 
 int main() {
+    int a;
     int answer = 2 + divide(40, 20);
-    printf("2 + 40/20 = %d\n", answer);
+    printf("2 + 20/40 = %d\n", answer);
+
+    scanf("%d", &a);
 }
