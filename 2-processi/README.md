@@ -85,7 +85,7 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | tail -n 1
 ```
 
 ### 2. A proposito di stelle
