@@ -85,7 +85,7 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | tail -n 1
 ```
 
 ### 2. A proposito di stelle
@@ -93,7 +93,8 @@ Inserire qui il comando che produce la risposta
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | grep "stelle" | wc
+--> 26
 ```
 
 ### 3. Lista dei file
@@ -101,7 +102,7 @@ Inserire qui il comando che produce la risposta
 Trovare il file più piccolo presente in questa cartella.
 
 ```bash
-Inserire qui il comando che produce la risposta
+ls -la
 ```
 
 ### 4. Lista delle domande
