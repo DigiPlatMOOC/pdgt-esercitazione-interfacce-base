@@ -85,6 +85,7 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
+//locale:
 cat divina_commedia.txt | tail -n 1
 ```
 
@@ -93,6 +94,7 @@ cat divina_commedia.txt | tail -n 1
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
+//locale:
 cat divina_commedia.txt | grep "stelle" | wc
 --> 26
 ```
@@ -114,9 +116,13 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
+//locale:
 more +83 README.md
 oppure
 cat README.md | grep "### " | tail -n 4
+
+// utilizzando il link sopra fornito:
+curl https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md | more +83
 ```
 
 Non è importante che le domande siano ben formattate, ma devono essere visibili almeno nel titolo.
