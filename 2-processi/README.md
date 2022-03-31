@@ -68,7 +68,7 @@ Si consiglia di fare qualche prova con altri strumenti Unix elencati qui sotto.
 Menzione speciale per `grep`, uno strumento un po’ più sofisticato, che permette di fare *pattern matching* di una stringa all’interno dell’input.
 Ad esempio:
 
-```bash
+```bashsorgente
 curl http://www.example.org | grep -i "example"
 ```
 
@@ -114,7 +114,9 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
-Inserire qui il comando che produce la risposta
+more +83 README.md
+oppure
+cat README.md | grep "### " | tail -n 4
 ```
 
 Non è importante che le domande siano ben formattate, ma devono essere visibili almeno nel titolo.
