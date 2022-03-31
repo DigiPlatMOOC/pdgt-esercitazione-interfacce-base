@@ -102,7 +102,7 @@ cat divina_commedia.txt | grep "stelle" | wc
 Trovare il file più piccolo presente in questa cartella.
 
 ```bash
-ls -la
+ls -S | tail -n 1
 ```
 
 ### 4. Lista delle domande
