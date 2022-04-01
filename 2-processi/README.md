@@ -85,7 +85,7 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | tail -n 1
 ```
 
 ### 2. A proposito di stelle
@@ -93,7 +93,8 @@ Inserire qui il comando che produce la risposta
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
-Inserire qui il comando che produce la risposta
+cat divina_commedia.txt | grep -ow  "stelle" | wc -l
+
 ```
 
 ### 3. Lista dei file
@@ -101,7 +102,8 @@ Inserire qui il comando che produce la risposta
 Trovare il file più piccolo presente in questa cartella.
 
 ```bash
-Inserire qui il comando che produce la risposta
+ls -S | tail -n 1
+
 ```
 
 ### 4. Lista delle domande
@@ -113,7 +115,11 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
-Inserire qui il comando che produce la risposta
+--- DA REMOTO ---
+curl https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md | grep -E '### [1. 2. 3. 4.]'
+--- DA LOCALE ---
+grep -E '### [1. 2. 3. 4.]' README.md
+
 ```
 
 Non è importante che le domande siano ben formattate, ma devono essere visibili almeno nel titolo.
