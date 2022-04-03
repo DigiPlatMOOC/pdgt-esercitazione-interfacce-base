@@ -113,7 +113,7 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
-Inserire qui il comando che produce la risposta
+curl https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md | grep -E "###" | tail -n 4
 ```
 
 Non è importante che le domande siano ben formattate, ma devono essere visibili almeno nel titolo.
