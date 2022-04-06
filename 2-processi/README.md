@@ -68,7 +68,7 @@ Si consiglia di fare qualche prova con altri strumenti Unix elencati qui sotto.
 Menzione speciale per `grep`, uno strumento un po’ più sofisticato, che permette di fare *pattern matching* di una stringa all’interno dell’input.
 Ad esempio:
 
-```bash
+```bashsorgente
 curl http://www.example.org | grep -i "example"
 ```
 
@@ -85,7 +85,8 @@ Consegnare l’esercitazione semplicemente modificando questo file ed inserendo 
 Come si ottiene l’utima riga della Divina Commedia?
 
 ```bash
-Inserire qui il comando che produce la risposta
+//locale:
+cat divina_commedia.txt | tail -n 1
 ```
 
 ### 2. A proposito di stelle
@@ -93,7 +94,9 @@ Inserire qui il comando che produce la risposta
 Le stelle occupano un significato simbolico all’intero della Divina Commedia. Quante volte vengono menzionate all’interno del testo?
 
 ```bash
-Inserire qui il comando che produce la risposta
+//locale:
+cat divina_commedia.txt | grep "stelle" | wc
+--> 26
 ```
 
 ### 3. Lista dei file
@@ -101,7 +104,7 @@ Inserire qui il comando che produce la risposta
 Trovare il file più piccolo presente in questa cartella.
 
 ```bash
-Inserire qui il comando che produce la risposta
+ls -S | tail -n 1
 ```
 
 ### 4. Lista delle domande
@@ -113,7 +116,13 @@ Considerato che il sorgente di questo file è disponibile all’indirizzo:
 Trovare il comando che generi la lista delle domande per la consegna.
 
 ```bash
-Inserire qui il comando che produce la risposta
+//locale:
+more +83 README.md
+oppure
+cat README.md | grep "### " | tail -n 4
+
+// utilizzando il link sopra fornito:
+curl https://raw.githubusercontent.com/DigiPlatMOOC/pdgt-esercitazione-interfacce-base/master/2-processi/README.md | more +83
 ```
 
 Non è importante che le domande siano ben formattate, ma devono essere visibili almeno nel titolo.
