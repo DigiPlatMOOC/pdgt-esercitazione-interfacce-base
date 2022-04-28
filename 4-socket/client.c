@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "socket-lib.h"
 
-#define HOST "127.0.0.1"
-#define PORT 1234
+#define HOST "127.0.0.1" /* http://www.google.com/ -> faccio una richiesta a google*/
+#define PORT 1234 /* 80 -> http */
 
 int main() {
     if(socket_init() != 0) {
@@ -27,7 +27,7 @@ int main() {
     memset(input, 0, sizeof(char) * 512);
 
     printf("Send > ");
-    fgets(input, 511, stdin);
+    fgets(input, 511, stdin); /* creo una stringa statica in cui scrivo la richiesta http con la sintassi della richiesta senza header */
 
     send(socket, input, strlen(input), 0);
     socket_close_send(socket);
