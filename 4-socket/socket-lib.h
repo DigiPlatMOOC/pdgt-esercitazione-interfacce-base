@@ -11,7 +11,7 @@
         #define _WIN32_WINNT 0x0501
     #endif
     #include <winsock2.h>
-    #include <Ws2tcpip.h>
+    #include <ws2tcpip.h>
 
     #define SOCKET_T SOCKET
 #else
@@ -70,7 +70,7 @@ int socket_connect(SOCKET_T socket, const char *hostname, int port) {
         hints.ai_family = AF_UNSPEC;
         hints.ai_socktype = SOCK_STREAM;
         hints.ai_protocol = IPPROTO_TCP;
-        if(getaddrinfo(hostname, port_str, &hints, &result) != 0) {
+        if (getaddrinfo(hostname, port_str, &hints, &result) != 0) {
             return -1;
         }
 
