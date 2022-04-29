@@ -41,6 +41,7 @@ int socket_quit() {
     #endif
 }
 
+/* creazione di socket senza distinzione tra win e linux a livello semantico */
 SOCKET_T socket_create() {
     #ifdef _WIN32
         SOCKET s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -49,15 +50,16 @@ SOCKET_T socket_create() {
         }
         return s;
     #else
-        int sock = socket(AF_INET, SOCK_STREAM, 0);
-        if(sock < 0) {
-            return 0;
+        int sock = socket(AF_INET, SOCK_STREAM, 0); /* socket() funzione di lib. socket di tipo stream e protocollo TCP */
+        if(sock < 0) {				      /* 0 = maschera -> per il protocollo TCP */
+            return 0;				      /* x cambiare la socket avremmo dovuto modificare il 2 e 3 parametro */
         }
         return sock;
     #endif
 }
 
-int socket_connect(SOCKET_T socket, const char *hostname, int port) {
+/* connessione - funzione invocata dal client */
+int socket_connect(SOCKET_T socket, const char *hostname, int port) { /* necessita di: socket, indirizzo IP(o nome) e porta */
     #ifdef _WIN32
         char port_str[128];
         memset(port_str, 0, sizeof(char) * 128);
@@ -66,7 +68,8 @@ int socket_connect(SOCKET_T socket, const char *hostname, int port) {
         struct addrinfo hints;
         memset(&hints, 0, sizeof(hints));
         struct addrinfo *result = NULL;
-
+	
+	// informazioni inizializzate 
         hints.ai_family = AF_UNSPEC;
         hints.ai_socktype = SOCK_STREAM;
         hints.ai_protocol = IPPROTO_TCP;
@@ -110,6 +113,7 @@ int socket_connect(SOCKET_T socket, const char *hostname, int port) {
     return 0;
 }
 
+/* il server si connette alla porta per offrire il servizio */
 int socket_bind(SOCKET_T socket, const char *hostname, int port) {
     #ifdef _WIN32
         char port_str[128];
@@ -163,6 +167,7 @@ int socket_bind(SOCKET_T socket, const char *hostname, int port) {
     return 0;
 }
 
+/* funzione invocata solo dal server */
 int socket_listen(SOCKET_T socket) {
     #ifdef _WIN32
         return (listen(socket, SOMAXCONN) == 0) ? 0 : -1;
